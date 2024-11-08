@@ -52,14 +52,15 @@ export class App extends Component {
     }));
   };
   render() {
+    const { images, totalImages, isLoading, SearchTerm } = this.state;
     return (
       <div>
         <Searchbar OnSubmit={this.handleSearchSubmit} />
         <ImageGallery
-          images={this.state.images}
-          totalImages={this.state.totalImages}
-          isLoading={this.state.isLoading}
-          SearchTerm={this.state.SearchTerm}
+          images={images}
+          totalImages={totalImages}
+          isLoading={isLoading}
+          SearchTerm={SearchTerm}
           onLoad={this.handleLoadMore}
         />
       </div>
