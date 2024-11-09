@@ -5,9 +5,9 @@ export class Searchbar extends Component {
     inputValue: '',
   };
 
-  OnSubmit = () => {
+  onSubmit = () => {
     const { inputValue } = this.state;
-    this.props.OnSubmit(inputValue);
+    this.props.onSubmit(inputValue);
   };
   handleInputChange = ev => {
     const { value } = ev.target;
@@ -21,7 +21,7 @@ export class Searchbar extends Component {
           className={styles.form}
           onSubmit={e => {
             e.preventDefault();
-            this.OnSubmit();
+            this.onSubmit();
           }}
         >
           <button type="submit" className={styles.searchbutton}>

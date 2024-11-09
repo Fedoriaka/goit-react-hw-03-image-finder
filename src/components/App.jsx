@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
+ const BASE_URL = 'https://pixabay.com/api/';
+ const API_KEY = '46254604-623035f39894a833efa0483b4';
+
 
 export class App extends Component {
   constructor(props) {
@@ -24,11 +27,9 @@ export class App extends Component {
     }
   };
   handlefetch = () => {
-    const BASE_URL = 'https://pixabay.com/api/';
-    const API_KEY = '46254604-623035f39894a833efa0483b4';
-    const url = `${BASE_URL}?key=${API_KEY}&q=${this.state.SearchTerm}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.state.perPage}&page=${this.state.page}`;
-    this.setState({ isLoading: true });
-
+   
+ const url = `${BASE_URL}?key=${API_KEY}&q=${this.state.SearchTerm}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.state.perPage}&page=${this.state.page}`;
+ this.setState({ isLoading: true });
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -55,7 +56,7 @@ export class App extends Component {
     const { images, totalImages, isLoading, SearchTerm } = this.state;
     return (
       <div>
-        <Searchbar OnSubmit={this.handleSearchSubmit} />
+        <Searchbar onSubmit={this.handleSearchSubmit} />
         <ImageGallery
           images={images}
           totalImages={totalImages}

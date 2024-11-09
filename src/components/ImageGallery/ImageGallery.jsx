@@ -11,11 +11,13 @@ export const ImageGallery = ({
 }) => {
   return (
     <div>
-      <ul className={styles.gallery}>
-        {images.map(image => (
-          <ImageGalleryItem key={image.id} url={image.webformatURL} />
-        ))}
-      </ul>
+      {images.length > 0 && (
+        <ul className={styles.gallery}>
+          {images.map(image => (
+            <ImageGalleryItem key={image.id} url={image.webformatURL} />
+          ))}
+        </ul>
+      )}
 
       {isLoading && <Loader />}
 

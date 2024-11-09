@@ -5,10 +5,10 @@ export class ImageGalleryItem extends Component {
   state = {
     isOpen: false,
   };
-  OpenModal = () => {
+  openModal = () => {
     this.setState({ isOpen: true });
   };
-  CloseModal = () => {
+  closeModal = () => {
     this.setState({ isOpen: false });
   };
 
@@ -22,14 +22,14 @@ export class ImageGalleryItem extends Component {
           src={url}
           alt=""
           className={styles.galleryitem}
-          onClick={this.OpenModal}
+          onClick={this.openModal}
         />
 
         {isOpen && (
           <Modal
             imageUrl={url}
             altText="Large version"
-            onClose={this.CloseModal}
+            onClose={this.closeModal}
           />
         )}
       </li>
